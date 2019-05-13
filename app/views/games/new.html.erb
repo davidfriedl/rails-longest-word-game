@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Random Letters</h1>
+  <div class="d-flex justify-content-around">
+    <% @letters.chars do |letter| %>
+      <div class="letter"><%= letter %></div>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <p>What is the longest word you can find?</p>
+    <form action="/score" method="post" class="d-flex">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="d-flex">
+        <div class="justify-content-between">
+          <input type="text" name="name" placeholder="word" class="" >
+          <input id="tags_list" name="letters" type="hidden" value= '<%=@letters%>'/>
+        </div>
+        <div class="justify-content-between">
+          <input type="submit" class="btn-primary" value="send">
+        </div>
+      </div>
+    </form>
+</div>
+
+
